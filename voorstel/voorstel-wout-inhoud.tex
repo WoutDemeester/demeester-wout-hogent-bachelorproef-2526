@@ -1,0 +1,117 @@
+%---------- Inleiding ---------------------------------------------------------
+
+% TODO: Is dit voorstel gebaseerd op een paper van Research Methods die je
+% vorig jaar hebt ingediend? Heb je daarbij eventueel samengewerkt met een
+% andere student?
+% Zo ja, haal dan de tekst hieronder uit commentaar en pas aan.
+
+%\paragraph{Opmerking}
+
+% Dit voorstel is gebaseerd op het onderzoeksvoorstel dat werd geschreven in het
+% kader van het vak Research Methods dat ik (vorig/dit) academiejaar heb
+% uitgewerkt (met medesturent VOORNAAM NAAM als mede-auteur).
+% 
+\section{Inleiding}%
+\label{sec:inleiding}
+
+In de huidige maatschappij en op de werkvloer maakt men meer een meer gebruik van AI. Deze massale opkomst van AI in onze maatschappij vergroot de nood voor Kmo’s en organisaties om AI-systemen te implementeren binnen hun bedrijf, bij voorkeur op hun eigen beschikbare hardware, zodat alle data beveiligd binnen het bedrijf blijft. \parencite{AI21}\parencite{lowtouchAI}
+\\
+\\
+Het opzetten van een lokaal AI-model brengt echter ook wat uitdagingen met zich mee. Denk hierbij aan de keuze die men moet maken over de hardware, software-frameworks die gebruikt worden om het model te trainen en de beveiliging van dit AI-Systeem. Ook naar schaalbaarheid toe komen er zeker wat uitdagingen kijken. \parencite{Barmer2021} \parencite{varma}
+\\
+\\
+Dit onderzoek richt zich daarom op het vinden van een geschikte oplossing voor het opzetten van een lokaal AI-Systeem binnen DX-Solutions zodat alle data on premise beveiligd blijft. Ook richt dit onderzoek zich op de schaalbaarheid van deze systemen.
+
+\subsection*{Doelgroep}%
+Dit onderzoek richt zich vooral op Kmo’s en organisaties die nood hebben aan een lokaal AI-systeem, zodat hun data veilig bewaard wordt binnen hun bedrijf \parencite{AI21}. In het specifiek kijken we binnen dit onderzoek naar het bedrijf DX-Solutions.
+
+\subsection*{Probleemstelling}%
+In het bedrijf DX-Solutions maakt men meer en meer gebruik van AI. Door deze opkomst van AI binnen hun bedrijf zijn ze opzoek naar een manier om een lokaal AI-systeem op te zetten zodat alle data veilig lokaal verwerkt kan worden.
+
+\subsection*{Onderzoeksvraag}%
+Hoe kan een KMO of organisatie het best een lokaal AI-Systeem opzetten, rekening houdende met de bedrijfsnoden en veiligheid van de data.
+
+\subsection*{Onderzoeksdoelstelling}%
+Binnen dit onderzoek verwachten we binnen de 14 beschikbare weken een lokaal AI-Systeem op te stellen die voldoet aan de bedrijfsnoden van DX-Solutions. We richten ons vooral op het beveiligen van dit lokaal AI-Systeem, waarbij we dan ook verwachten dat alle data on premise blijft. Ook gaan we ons richten op het schaalbaar maken van dit AI-systeem, om zo ruimte te voorzien voor alle nodige werknemers. We zullen alles gaan uittesten binnen een testomgeving met alle nodige apparatuur en hopen daar dan ook een werkend AI-systeem te kunnen opleveren die veilig en schaalbaar is en voldoet aan de bedrijfsnoden van DX-Solutions. 
+%---------- Stand van zaken ---------------------------------------------------
+
+\section{Literatuurstudie}%
+\label{sec:literatuurstudie}
+In vele bedrijven maken werknemers meer en meer gebruik van AI-modellen. Denk hierbij aan chat-GPT of binnen de bedrijfswereld aan Microsoft co-pilot. Bedrijven kunnen een abonnement afsluiten voor deze diensten, waardoor de werknemers toegang hebben tot dit AI-model. Een probleem is echter dat de data die dit AI-model bijhoudt in handen is van de provider. Microsoft heeft dus inzicht in deze data en gebruikt deze ook om hun modellen te trainen \parencite{Team2025}. Echter hebben bedrijven liever dat ze controle kunnen houden over hun eigen data. Daarom zoeken bedrijven naar een manier om een AI-model veilig binnen hun eigen infrastructuur te draaien. Met deze oplossing blijft de data vertrouwd binnen de organisatie, maar het brengt wel extra kosten met zich mee, doordat de organisatie zelf moet voorzien in hardware. Vele bedrijven hebben ook als wens dat dit AI-systeem beschikbaar moet zijn voor iedereen binnen het bedrijf, echter bestaan sommige bedrijven uit honderden werknemers of meer, dus is er ook nood aan het vinden van een oplossing om dit systeem schaalbaar te maken \parencite{varma} \parencite{Barmer2021} \parencite{Haq2025}.
+\\
+\\
+Voor de personen die niet weten wat een LLM is hier even een korte uitleg. LLM staat voor Large Language Model, het zijn modellen die getraind zijn met allerlei data, zodat wij deze een vraag kunnen stellen en dit model hierop binnen enkele seconden een antwoord kan geven. Het kan ook afbeeldingen generen en nu kun je ook al video’s laten generen. \parencite{Heaven2024}
+\\
+
+\subsection{Werking en vereisten van \newline AI-Systemen}
+Eerst en vooral moet je weten dat een AI-model getraind wordt a.h.v. vragen die wij stellen en de feedback die wij geven op de gegenereerde antwoorden. De hoeveelheid data dat dit soort model bevat is immens. Om zo een model lokaal te kunnen draaien op eigen infrastructuur heb je zowel hardware als software nodig.
+\\
+\\
+\textbf{Hardware:}
+\\
+Belangrijkste hardwarecomponenten zijn onder andere GPU’s (= Graphical Processing Units), VRAM, RAM, opslag en CPU (=Central Processing Unit). Echter is in deze context de GPU belangrijker dan de CPU. Dit komt omdat een CPU gemaakt is voor sequentiële taken uit te voeren, dit betekent dat de taken achtereenvolgend uitgevoerd worden, maar omdat we hier met zeer grote hoeveelheden data werken en de berekeningen die gemaakt moeten worden om het juiste antwoord te generen zodanig complex zijn is de GPU het belangrijkst. Een GPU is namelijk ontworpen om taken parallel uit te voeren, dit wilt zeggen dat je verschillende taken tegelijkertijd kan gaan uitvoeren, iets wat in het verhaal van LLM’s zeer noodzakelijk is. Als we ons zouden focussen op de CPU dan zouden berekeningen veel te traag verlopen. \parencite{cloudian} \parencite{cloudianAIstorage} \parencite{cloudianAIstorage} \parencite{HPE} \parencite{Gyawali}
+\\
+\\
+Het VRAM wordt gebruikt om data-parameters in op te slaan. Ook moeten alle parameters die bij een AI-model horen kunnen opgeslagen worden in het VRAM voor een optimale werking van het model te garanderen. \parencite{ApXml}
+\\
+\\
+\textbf{Software:}
+\\
+Niet enkel de hardware speelt een cruciale rol, ook het gebruik van de juiste software en frameworks is cruciaal. Wat veel gebruikt wordt bij AI-modellen zijn interference frameworks. Dit is software die ervoor zorgt dat het AI-model uitgevoerd wordt op de effectieve hardware. Deze software zorgt er ook voor dat een model ingeladen kan worden in het VRAM, input kan verwerken en output kan genereren. Ook verkleint het de grootte van het model. Voorbeelden van interference-frameworks zijn vLLM, Ollama, LM Studio, etc.… \parencite{Nguyen2019}
+\\
+\\
+Het besturingssysteem speelt ook een belangrijke rol want dit moet compatibel zijn met de hardware en het framework. Een veel gebruikt besturingssysteem voor servers is Linux. Dit mede omdat Linux stabiel is en makkelijk te configureren is. Om de GPU correct te kunnen laten communiceren met het interference-framework heb je ook nog een gepaste GPU-driver nodig denk hierbij aan NVIDIA, AMD, etc.. Het is belangrijk dat alles compatibel is met elkaar van GPU tot framework en tot GPU-driver. \parencite{projectpro2024} \parencite{openmetal2025}
+\\
+\\
+\textbf{Beveiliging:}
+\\
+Om het model te beveiligen kun je werken met firewalls, Role Based Access Control (RBAC), Intrusion Detection System (IDS), Intrusion Prevention System (IPS), VPN, TLS/SSL-encryptie om alle communicatie te encrypteren, VPN-tunneling, etc.… Ook kun je werken met monitoringstools die het verkeer constant analyseren en verdachte activiteiten detecteren. Door van al deze maatregelen gebruik te maken blijft zowel de vertrouwelijkheid als de integriteit van de data van het AI-model gewaarborgd. \parencite{Abbas2023} \parencite{Kumar2024} \parencite{Akter2022} \parencite{Mehra2024}
+\\
+\\
+\textbf{Schaalbaarheid:}
+\\
+Omdat sommige bedrijven honderden werknemers hebben kan het aantal gebruikers van het lokaal AI-Systeem ook rap oplopen, daardoor moeten bedrijven op zoek naar manieren hoe deze AI-Systemen schaalbaar kunnen worden opgezet. Een schaalbaar systeem vereist dat meerdere gebruikers gelijktijdig gebruik kunnen maken van het AI-systeem zonder prestatieverlies. Dit kunnen bedrijven realiseren door het AI-systeem te verdelen over verschillende GPU-servers, \\load-balancing toe te passen en gebruik te maken van servers die de taken efficiënt en tegelijkertijd / parallel verwerken. Daarnaast kunnen bedrijven deze AI-systemen efficiënter maken door gebruik te maken van technieken zoals caching en quantisatie. Door gebruik te maken van kubernetes of vergelijkbare software voor load balancing, kun je automatisch extra resources inzetten op plekken waar de vraag toeneemt. \parencite{varma} \parencite{Barmer2021}
+
+
+\subsection{Conclusie:}
+Het opzetten van een lokaal AI-model vereist een goed inzicht in hoe je de hardware, software en beveiliging het best combineert. Kmo’s en organisatie die het idee overwegen moeten rekening houden met de rekenkracht die hierbij komt kijken, de compatibiliteit van de verschillende hardware – en softwarecomponenten die vereist zijn en de juiste beveiligingsmaatregelen om de authenticiteit en integriteit van de data te kunnen behouden. Hoewel deze aanpak veel uitdagingen met zich meebrengt biedt het ook aanzienlijke voordelen op vlak van beveiliging en controle over eigen bedrijfsdata.
+
+
+%---------- Methodologie ------------------------------------------------------
+\section{Methodologie}%
+\label{sec:methodologie}
+In ons onderzoek zullen we vertrekken vanuit het bedrijf DX-Solutions, die behoefte heeft aan een lokaal AI-Systeem zodat hun data veilig en vertrouwd on-premise blijft.
+
+\subsection{Literatuurstudie}
+We spreiden het onderzoek over de beschikbare 14 weken. De eerste week focussen we ons  \\\,$\pm$ 2 dagen op de Literatuurstudie. Waarin we de verschillende mogelijkheden onderzoeken, van hardware tot software frameworks, en nagaan hoe we dit AI-Systeem het best kunnen beveiligen, zodat de data on-premise blijft. \parencite{AI21} \parencite{lowtouchAI}
+
+\subsection{Requirementsanalyse}
+In de daaropvolgende twee weken focussen we ons op de requirementsanalyse. We onderzoeken welke hardware en software frameworks het best aansluiten bij het budget van het bedrijf. Daarnaast bekijken we welke netwerkapparatuur we het best kunt gebruiken voor het AI-Systeem optimaal te beveiligen. Ook onderzoeken we hoe de schaalbaarheid van dit AI-Systeem geoptimaliseerd kan worden en nemen we verschillende automatisatie-tools op in de analyse. Op het einde van deze twee weken zitten we samen met het bedrijf om deze analyse te bespreken.
+
+\subsection{Proof-of-Concept}
+Na overleg met het bedrijf over de requirementsanalyse, gaan we vanaf week vier aan de slag met het opzetten van onze Proof-Of-Concept (PoC). Hier zullen we twee weken werk aan besteden. Hier zullen we ons richten op het opzetten van het lokaal AI-Systeem op basis van de gekozen hardware en softwareframeworks uit de requirementsanalyse. Vervolgens zullen we alle nodige netwerkapparatuur, zoals IDS, IPS en Firewalls, gaan configureren om alle data optimaal te beveiligen. Tijdens het opzetten van dit PoC houden we rekening met de schaalbaarheid, dat een belangrijk doel is binnen dit onderzoek.
+\newpage
+\subsection{Testfase}
+Nadat we het PoC opgezet hebben, kunnen we in week 6 aan de slag met het uitvoeren van allerhande testen. We testen of de data daadwerkelijk on-premise blijft en testen welke aanvallen er van buitenaf nog mogelijk zijn, waarbij we het PoC dan ook verbeteren waar nodig. Nadat de beveiliging van het AI-Systeem is geoptimaliseerd, voeren we allerlei testen uit om de schaalbaarheid van het AI-Systeem te testen. Voor de testfase voorzien we vijf weken. Tijdens de testfase analyseren we alle testresultaten en lijsten deze ook op. Na elke testweek plannen we een terugkoppeling in met het bedrijf om deze testresultaten te bespreken. Zo krijgen we ook feedback die we dan weer kunnen meenemen in het optimaliseren van het PoC. 
+
+\subsection{Feedback \& Coclussie}
+Nadat we de testfase van vijf weken succesvol hebben afgerond, voorzien we in week 12 nog een terugkoppelmoment met het bedrijf om alle testresultaten nog eens grondig te bespreken. Hier bespreken we wat al reeds in orde is, maar bespreken we ook waar nog verbetering mogelijk is. Op basis van deze feedback gaan we dan aan de slag met het uitwerken van een conclusie en een eindrapport. Hierin zullen we het verloop van het hele onderzoek beschrijven en ook de uitdagingen/moeilijkheden die we ondervonden hebben. Deze conclusie en het eindrapport zullen we dan opnieuw voorleggen aan het bedrijf, zodat zij hier verder mee aan de slag kunnen gaan in de toekomst.
+
+Zie Gantt-diagram \ref{fig:gantt}.
+
+%---------- Verwachte resultaten ----------------------------------------------
+\section{Verwacht resultaten}%
+\label{sec:verwachte_resultaten}
+Binnen dit onderzoek verwachten we een volledig lokaal AI-systeem te kunnen opzetten dat voldoet aan alle noden van het bedrijf in kwestie. We verwachten dat alle data volledig on-premise blijft, waardoor gevoelige data niet buiten het bedrijf opgeslagen/bekeken kan worden \parencite{varma} \parencite{Haq2025}. Door gebruik te maken van netwerkbeveiligingsapparatuur zoals firewalls, IDS (Intrusion Detection Systems) en IPS (Intrusion Prevention Systems) in combinatie met de gepaste softwareframeworks en hardware verwachten we dat het systeem bestand zal zijn tegen de meeste dreigingen. We verwachten dat door de verschillende testen die we zullen uitvoeren binnen ons PoC, het duidelijk wordt welke zwakke punten er nog aanwezig zijn binnen ons opstelling, zodat we daar dan nog verbeteringen kunnen gaan aanbrengen om zo de beveiliging te optimaliseren \parencite{Abbas2023}. 
+\newpage
+We verwachten met het onderzoek te kunnen bewijzen dat het lokaal AI-systeem schaalbaar opgezet kan worden, zodat toekomstige groei binnen de organisatie niet veel aanpassingen vereist voor dit systeem en dat het hier makkelijk kan op inspelen. Door de requirementsanalyse verwachten een goed inzicht te krijgen in welke hardware-opties en softwareframeworks het meest geschikt zijn voor het systeem schaalbaar te maken. Ook zullen we hiermee een inzicht krijgen in welke configuraties het meest geschikt zijn voor een schaalbare toepassing te creëren. Tijdens de testfase verwachten we wel nog wat aanpassingen te moeten doen aan de configuratie / hardware resources om dit systeem zo schaalbaar mogelijk te krijgen. Uiteindelijk verwachten we een schaalbare toepassing te kunnen aanbieden.
+\\
+\\
+Door gebruik te maken van automatisatietools verwachten dat het gehele proces vlotter zal verlopen. We verwachten ook makkelijk aanpassingen te kunnen doen waar nodig tijdens het opzetten van het PoC en het uitvoeren van de testfase. Ook het uitrollen van updates moet door het gebruik van automatisatietools vlotter verlopen.
+
+\section{Discussie, verwachte conclusie}
+Dit onderzoek zorgt ervoor dat DX-Solutions een optimaal beveiligd lokaal AI-Systeem kan opzetten, waardoor alle data vertrouwd en beveiligd on premise gehouden wordt. We verwachten dan ook dat onze PoC aantoont dat het opzetten van een lokaal AI-Systeem een aanzienlijke bijdrage kan leveren aan de interne en externe bedrijfsprocessen binnen DX-Solutions . Doordat we dit lokaal AI-systeem zo schaalbaar mogelijk ontwikkelen zorgen we ervoor dat DX-Solutions in de toekomst geen fouten kan ervaren met dat er te weinig resources beschikbaar zijn voor het nodige aantal gebruikers. \parencite{varma} \parencite{Barmer2021}
+\\
+\\
+Mocht blijken dat de resultaten uit de testen toch afwijken van de verwachte resultaten dan kan er altijd nog gekeken worden naar andere alternatieven omtrent hardware, softwareframeworks,  beveiliging, etc…, om het AI-Systeem nog schaalbarer en veiliger te maken. 
+
