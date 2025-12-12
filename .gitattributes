@@ -5,6 +5,8 @@
 *.sh text eol=lf
 *.bats text eol=lf
 *.py text eol=lf
+*.bib text eol=lf
+*.tex text eol=lf
 
 # Windows Batch or PowerShell scripts should have CRLF endings
 *.bat text eol=crlf
